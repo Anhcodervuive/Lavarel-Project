@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +20,14 @@ Route::get('/', function () {
 
 Route::get('/dashbroad', function () {
     return view('admin.dashbroad.index');
-});
+})->name('dashbroad');
 
 Route::get('/home', function () {
     return view('client.layouts.app');
 });
 
 Auth::routes();
+
+Route::resource('roles', RoleController::class);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
